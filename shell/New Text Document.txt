@@ -1,0 +1,251 @@
+Bài 40
+
+echo "Nhap ten file: "
+read STRING
+file_name=$STRING
+touch nhap.txt
+file=nhap.txt
+count=0
+while read line
+do
+	((count++))
+	if [` expr ${count} %2 ` -eq 0 ];
+	then
+		echo $line >> nhap.txt
+		echo " " >> nhap.txt
+	else
+		echo $line >> nhap.txt
+	fi
+done < ${file_name}
+cat $file > $file_name
+rm $file
+
+---------------------------------
+Bài 39
+
+if [ -d SYS]
+then
+	echo "ton tai"
+else
+	echo "khong ton tai"
+	mkdir SYS
+	echo "Da tao thu muc SYS"
+fi
+
+----------------------------------------
+Bài 38
+
+echo " Nhap ten thu muc can xoa file: "
+read STRING
+find./STRING -size -k -print -delete
+
+
+----------------------------------------
+Bài 37
+
+echo "Nhap ten file can doi: "
+readv STRING
+file_name = $STRING
+mv " $file_name" "${file_name%.txt}.doc"
+
+
+-----------------------------------------
+Bài 36
+
+awk -F: '{print $1}' /etc/passwd | sort -b
+
+---------------------------------------
+Bài 35
+
+#!/bin/sh
+echo "CT liet ke tham so => dung while"
+count=1
+while [ $count -le $# ]
+do
+	echo -n "Day la tham so thu $count: "
+	eval echo \$$count
+	count=$(($count+1))
+	
+done
+
+echo "CT liet ke tham so => dung for"
+count=1
+for arg in "$@"
+do
+	echo "day la tham so thu $count: $arg" 
+	count=$(($count+1))
+done	
+
+echo "CT liet ke tham so => dung while & lenh SHIFT"
+count=1 
+while [ "$#" -ne 0 ] 
+do 
+echo "day la tham so thu $count: $1" 
+count=$(($count + 1)) 
+shift 
+done
+
+-----------------------------------------
+Bài 34
+
+echo " Nhap ten file can xoa khoang trang: "
+read STRING
+file_name = $STRING
+echo"Noi dung file truoc khi xu ly: "
+cat ${file_name}
+echo"Noi dung file sau khi xu ly: "
+cat ${file_name} | tr -s ' '
+
+---------------------------------------------
+Bài 33
+
+echo " Nhap file can tim: "
+read STRING
+file_name = $STRING
+echo"Nhap chuoi can tim trong file ${file_name}: "
+read chuoi
+grep "$chuoi" $file_name
+
+----------------------------------------------
+Bài 32
+
+echo " Nhap ten file can tim: "
+read STRING
+file_name = $STRING
+{
+	n = 0
+	max = 0
+	dong = ""
+	while read line
+	do
+		n = `expr length "$line"`
+		if [ $n -gt $max];
+		then
+			dong=$line
+			max=$n
+		fi
+	done < ${file_name}
+	echo "Dong co do dai lon nhat la: $dong"
+}
+exit 0
+
+
+-------------------------------------------
+Bài 31
+
+echo " Nhap ten file can tim: "
+read STRING
+file_name = $STRING
+echo "So luong dong tren file la: "
+wc -l $file_name
+echo "So luong tu trong file la: "
+wc -w $file_name
+
+
+--------------------------------------------
+Bài 30
+
+echo " Nhap ten file can tim: "
+read STRING
+echo " Hien thi tu dong "
+read tudong
+echo " Hien thi den dong "
+read dendong
+sed -n $tudong, $dendong\p ${STRING}
+
+-------------------------------------------------
+Bài 29
+
+#!/bin/bash
+echo " Nhap ten file: "
+read STRING
+file_name = $STRING
+if [ ! -f $file_name ];
+then
+	echo"${file_name} khong ton tai"
+	exit 1
+fi
+count = 0
+while read line
+do
+	((count++))
+	dongchan= $(expr ${count} %2)
+	if [$dongchan} -eq -];
+	then
+		echo ${line^^}
+	fi
+done < ${file_name}
+count=0
+cat ${file_name} | grep -n st
+echo "So dong chua chuoi st: "
+cat ${file_name} | grep -c st
+
+-----------------------------------
+Bài 28
+
+echo "Nhap ten thu muc can kiem tra: "
+read STRING
+echo " Cac file trong thu muc co kich thuoc lon hon 500kb"
+find ./${STRING} -size +500k
+echo "Cac fle trong thu muc khong co quyen ghi: "
+if [ -w ./${STRING} ]
+then
+	echo "./${STRING}"
+else
+	echo "khong ton tai"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

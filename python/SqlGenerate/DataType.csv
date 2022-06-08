@@ -1,0 +1,22 @@
+Table Name,Physical name,Type,Length,Decimal,Require,Primary
+tblGioiTinh,MaGioiTinh,varchar,2,,YES,YES
+tblGioiTinh,GioiTinh,nvarchar,10,,,
+tblTrangThaiCanBo,MaTrangThaiCanBo,varchar,2,,YES,YES
+tblTrangThaiCanBo,TenTrangThaiCanBo,nvarchar,60,,,
+tblDanToc,MaDanToc,varchar,2,,YES,YES
+tblDanToc,TenDanToc,nvarchar,60,,,
+tblDanToc,TenKhac,nvarchar,200,,,
+tblTonGiao,MaTonGiao,varchar,2,,YES,YES
+tblTonGiao,TenTonGiao,nvarchar,100,,,
+tblTinh,MaTinh,varchar,2,,YES,YES
+tblTinh,TenTinh,nvarchar,60,,,
+tblTinh,Cap,nvarchar,60,,,
+tblHuyen,MaHuyen,varchar,3,,YES,YES
+tblHuyen,MaTinh,varchar,2,,YES,
+tblHuyen,TenHuyen,nvarchar,60,,,
+tblHuyen,Cap,nvarchar,20,,,
+tblXa,MaXa,varchar,5,,YES,YES
+tblXa,MaTinh,varchar,2,,YES,
+tblXa,MaHuyen,varchar,3,,YES,
+tblXa,TenXa,nvarchar,60,,,
+tblXa,Cap,nvarchar,20,,,
